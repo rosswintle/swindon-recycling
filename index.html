@@ -19,89 +19,106 @@
   </main>
 <script>
 
+var colours = {
+  orange: 'hsl(30, 100%, 60%)'
+}
 var materials = [
   {
     name: 'Letters',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Envelopes',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Paper',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Junk Mail',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Leaflets',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Newspapers',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Magazines',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Catalogues',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Wrapping paper (non-metallic)',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: 'No metallic/foil wrapping please!!',
   },
   {
     name: 'Greeting cards',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: 'No metallic/foil cards please',
   },
   {
     name: 'Cardboard',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: 'Only clean/dry cardboard please!',
   },
   {
     name: 'Corrugated cardboard',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Cereal boxes',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Egg boxes',
     recycle: true,
     bin: 'Orange box',
+    binColor: colours.orange,
     notes: '',
   },
   {
@@ -180,7 +197,7 @@ function formatMaterial( material, searchString ) {
   return `<li class="${materialClass}">
             <div>
               <span class="name">${materialString}</span>
-              <span class="bin">${binString}</span>
+              <span class="bin" style="background-color: ${material.binColor}">${binString}</span>
             </div>
             <div>
               <span class="note">${material.notes}</span>

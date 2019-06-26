@@ -82,6 +82,11 @@ input.search {
 span.name {
   font-weight: bold;
 }
+span.bin {
+  padding: 0.5rem;
+  border: 1px solid white;
+  white-space: nowrap;
+}
 span.note {
   font-size: 15px;
 }
