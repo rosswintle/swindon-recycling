@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="Find a material">
+    <ul class="suggestions">
+      <li>Search for a material</li>
+    </ul>
+  </form>
+<script>
+
+var materials = [
+  {
+    name: 'Letters',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Envelopes',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Paper',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Junk Mail',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Leaflets',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Newspapers',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Magazines',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Catalogues',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Wrapping paper (non-metallic)',
+    recycle: true,
+    bin: 'Orange box',
+    notes: 'No metallic/foil wrapping please!!',
+  },
+  {
+    name: 'Greeting cards',
+    recycle: true,
+    bin: 'Orange box',
+    notes: 'No metallic/foil cards please',
+  },
+  {
+    name: 'Cardboard',
+    recycle: true,
+    bin: 'Orange box',
+    notes: 'Only clean/dry cardboard please!',
+  },
+  {
+    name: 'Corrugated cardboard',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Cereal boxes',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Egg boxes',
+    recycle: true,
+    bin: 'Orange box',
+    notes: '',
+  },
+  {
+    name: 'Paper towels',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Tissues',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Dirty cardboard',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Dirty paper plates',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Dirty paper cups',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Metallic wrapping paper',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Metallic greeting cards',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+  {
+    name: 'Tetra paks/juice cartons',
+    recycle: false,
+    bin: '',
+    notes: '',
+  },
+];
+
+const input = document.querySelector('input');
+const suggestions = document.querySelector('.suggestions');
+
+input.addEventListener( 'keyup', updateRecyclingList );
+
+function updateRecyclingList( ev ) {
+  const searchString = ev.target.value.toLowerCase();
+
+  const filteredMaterials = materials.filter( 
+    material => material.name.toLowerCase().includes(searchString)
+  );
+  
+  const materialList = filteredMaterials.map( material => formatMaterial( material, searchString ) );
+  
+  suggestions.innerHTML = materialList.join('');
+
+}
+
+function formatMaterial( material, searchString ) {
+  var materialString = material.name;
+  var materialClass = material.recycle ? 'recyclable' : 'non-recyclable';
+  var binString = material.recycle ? material.bin : 'Not recyclable';
+  materialString = materialString.replace( new RegExp(`(${searchString})`, 'gi'), '<span class="hl">$1</span>' );    
+  return `<li class="${materialClass}">
+            <div>
+              <span class="name">${materialString}</span>
+              <span class="bin">${binString}</span>
+            </div>
+            <div>
+              <span class="note">${material.notes}</span>
+            </div>
+          </li>`;
+}
+
+</script>
+</body>
+</html>
