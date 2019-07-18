@@ -24,155 +24,20 @@ var binColours = {
   'orange': 'hsl(30, 100%, 60%)',
   'green': 'hsl(120, 60%, 60%)',
   'black': 'hsl(0, 0%, 0%)',
-  'white': 'hsl(0, 0%, 100%)'
+  'white': 'hsl(0, 0%, 100%)',
+  'grey': 'hsl(0, 0%, 50%)'
+}
+// This maps a bin colour to an appropriate text colour
+var textColours = {
+  'orange': 'hsl(0, 0%, 0%)',
+  'green': 'hsl(0, 0%, 0%)',
+  'black': 'hsl(0, 0%, 100%)',
+  'white': 'hsl(0, 0%, 0%)',
+  'grey': 'hsl(0, 0%, 0%)'  
 }
 
-var materials = [
-  {
-    name: 'Letters',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Envelopes',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Paper',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Junk Mail',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Leaflets',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Newspapers',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Magazines',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Catalogues',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Wrapping paper (non-metallic)',
-    recycle: true,
-    bin: 'Orange box',
-    notes: 'No metallic/foil wrapping please!!',
-  },
-  {
-    name: 'Greeting cards',
-    recycle: true,
-    bin: 'Orange box',
-    notes: 'No metallic/foil cards please',
-  },
-  {
-    name: 'Cardboard',
-    recycle: true,
-    bin: 'Orange box',
-    notes: 'Only clean/dry cardboard please!',
-  },
-  {
-    name: 'Corrugated cardboard',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Cereal boxes',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Egg boxes',
-    recycle: true,
-    bin: 'Orange box',
-    notes: '',
-  },
-  {
-    name: 'Paper towels',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Tissues',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Dirty cardboard',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Dirty paper plates',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Dirty paper cups',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Metallic wrapping paper',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Metallic greeting cards',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Tetra paks/juice cartons',
-    recycle: false,
-    bin: '',
-    notes: '',
-  },
-  {
-    name: 'Grass cuttings',
-    recycle: true,
-    bin: 'Green garden waste',
-    notes: 'Requires garden waste subscription',
-  },
-  {
-    name: 'Leaves',
-    recycle: true,
-    bin: 'Green garden waste',
-    notes: 'Requires garden waste subscription',
-  },
-];
+var materials = 
+[{"name":"Aerosols","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Aluminium cans","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Aluminium foil","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Aluminium trays","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Animal bedding (such as paper or cloth)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Asbestos","bin":"HWRC. See also: <a href=\"https:\/\/www.swindon.gov.uk\/info\/20015\/bins_rubbish_and_recycling\/139\/dispose_of_asbestos_safely\">Dispose of asbestos safely<\/a>","recycle":true,"colour":"grey","notes":""},{"name":"Baby food jars","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Baby food pouches","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Baking trays","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Baths","bin":"<a href=\"https:\/\/www.swindon.gov.uk\/info\/20015\/bins_rubbish_and_recycling\/16\/disposal_of_large_household_items_bulky_waste\">Bulky waste collection<\/a>\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Bathroom suites","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Batteries (household)","bin":"HWRC\/most large supermarkets","recycle":true,"colour":"grey","notes":""},{"name":"Batteries (vehicle)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"BBQs - gas or electric","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Bedding (pillows and duvets)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Bicycles","bin":"HWRC\/charity shop","recycle":true,"colour":"grey","notes":""},{"name":"Biscuit wrappers","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Black plastic","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Books (paper\/ card)","bin":"Recycling box\/HWRC","recycle":true,"colour":"orange","notes":""},{"name":"Books (plastic)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Bottles (glass)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Branches (up to three inches in diameter)","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Bricks","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Bubble wrap","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Buckets","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":"for hard plastics"},{"name":"Building rubble","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Candles and Tea Lights","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Cans (steel &amp; aluminium)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Car batteries","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Car parts","bin":"Please use specialist auto recycler","recycle":false,"colour":null,"notes":"not accepted at HWRC"},{"name":"Cardboard (large pieces)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Cardboard (small pieces)","bin":"Recycling box","recycle":true,"colour":"orange","notes":"needs to be broken down into as size no wider than the recycling lid"},{"name":"Cards (non-metallic)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Cards (metallic)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Carpets\/underlay","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Cartons (food and drink)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Cast iron","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Catalogues","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Catheters","bin":"<a href=\"https:\/\/www.swindon.gov.uk\/info\/20015\/bins_rubbish_and_recycling\/169\/clinical_waste_collections\">Clinical waste collection<\/a>","recycle":false,"colour":null,"notes":"arranged"},{"name":"CDs\/DVDs","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Ceiling plaster","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Ceramic\/terracotta plant pots","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Cereal box","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Cheese wax (natural e.g. beeswax)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Cheese wax (synthetic e.g. plastic)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Chemicals (household)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Christmas trees","bin":"Special seasonal waste collection","recycle":true,"colour":null,"notes":""},{"name":"Cling film","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Clinical waste","bin":"Clinical waste collection","recycle":false,"colour":null,"notes":"arranged"},{"name":"Clothes","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Coat hangers","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Compost","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Compostable coffee cups","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Computers","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Concrete","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Confectionary packaging and wrappers","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Cookers","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Cooking oils and fats","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Copper baking trays","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Copper pans","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Copper piping","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Corrugated cardboard - Recycling box (needs to be broken down into a size no wider than the recycling lid)","bin":"large quantities to HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Crisp packets","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Crockery\/Cutlery","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Curtains","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Directories (Yellow Pages)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Dishwashers","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Disposable Razors","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"DIY waste","bin":"HWRC","recycle":true,"colour":"grey","notes":"maximum of five 25kg bags"},{"name":"Dog kennels","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Doors","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Down pipes (drain pipes)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Dressing (wounds)","bin":"Clinical waste collection","recycle":false,"colour":null,"notes":"arranged"},{"name":"Drink bottles (plastic)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Drink cans (steel and aluminium)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Drinking glasses","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Duvets","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Duvet covers","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Earth","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Egg boxes (cardboard)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Egg boxes (plastic)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Electrical items","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Engine oil (used)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Envelopes (any)","bin":"Recycling box","recycle":true,"colour":"orange","notes":"remove film window"},{"name":"Exercise equipment","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Fencing panels","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Fire extinguishers","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Flowers","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Fluorescent tubes","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Foil trays","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Food cans (steel and aluminium)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Food packaging film","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Food trays (black)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Food trays (white\/transparent)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Food waste","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Footwear","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag and preferably paired"},{"name":"Fridges\/freezers","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Furniture","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Garden chemicals","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Garden shed","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":"broken down as wood"},{"name":"Garden waste","bin":"Garden waste collection\/HWRC","recycle":true,"colour":"green","notes":""},{"name":"Gas canisters","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Gas cylinders","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Glass (sheet)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Glass bottles","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Glass jars","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Glasses (drinking)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Glass (Pyrex)","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Grass cuttings","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Handbags","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Hard-core and rubble (DIY)","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Hard plastic","bin":"HWRC\/Black wheelie bin\/blue bag","recycle":true,"colour":"black","notes":"if it will fit"},{"name":"Hazardous waste (household)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Hedge trimmings","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Helium bottles","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Hob","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Hoover","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Household chemicals","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Ice cream tubs (paper)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Ice cream tubs (plastic)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Ink cartridges (printer\/copier)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Jam jars","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Japanese Knot Weed","bin":"Destroy and alert the council","recycle":false,"colour":null,"notes":""},{"name":"Junk mail","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Kitchen paper","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Kitchen pots and pans","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Kitchen work tops\/units","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Ladders (wood or aluminium)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Laminate flooring","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Lawnmowers (electric, petrol or manual)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Leaflets","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Leaves","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Letters","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Light bulbs","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Linen","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Magazines","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Mattresses","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Medicines","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Mercury thermometer","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Metal (sheets)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Microwave","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Milk bottles","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Mirrors","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Mobile phones","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Musical instruments","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Nappies","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Needles &amp; syringes","bin":"Clinical waste collection","recycle":false,"colour":null,"notes":"arranged"},{"name":"Newspapers","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Oil (engine)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Oil filters","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Oven","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Paint","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Paper","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Paper (greaseproof)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Paper (shredded)","bin":"Recycling box","recycle":true,"colour":"orange","notes":"contained in an envelope, paper bag or box to prevent wind-blow"},{"name":"Paper cups (clean)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Paper cups (dirty)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Paper plates (clean)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Paper plates (dirty)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Paper towels","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Pans","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Paving slabs","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Pet bedding (cloth and paper)","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Pet bedding (hay and straw)","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Pet waste","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Photo copiers","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Photographs","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Pianos (and other musical instruments)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Pillows","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Pillow covers","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Plants","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Plant pots or trays","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Plasterboard","bin":"HWRC","recycle":true,"colour":"grey","notes":"fees may apply"},{"name":"Plastic (plant pots)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Plastic bottles (any) - Plastics collection (in a white\/transparent plastic bag","bin":"please flatten and include lids)","recycle":false,"colour":null,"notes":""},{"name":"Plastic carrier bags","bin":"Black wheelie bin\/blue bag\/return to large supermarkets","recycle":false,"colour":"black","notes":""},{"name":"Plastic furniture","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Plastic lids","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Plastic postal bags","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Plastic supermarket fruit\/veg bags","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Plastic toys","bin":"HWRC\/Black wheelie bin\/blue bag","recycle":true,"colour":"black","notes":"if it will fit"},{"name":"Plastic tray (black)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Plastic tray (clear\/white)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Plastic tray (green\/brown)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Polystyrene","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Pond plants","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Pyrex","bin":"Black wheelie bin\/blue bag \/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Rabbit hutches (and similar)","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Radiators","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Roof guttering","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Rubble","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Sandwich bags","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Sanitary products","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Scrap metal","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Screws \/ nuts \/ bolts","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Shampoo bottles (plastic)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Sheds","bin":"HWRC","recycle":true,"colour":"grey","notes":"disassembled and sorted"},{"name":"Shoes","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Shredded paper","bin":"Recycling box","recycle":true,"colour":"orange","notes":"contained in an envelope, paper bag or box"},{"name":"Shrubs","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Sinks","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Sleeping bags","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Smoke alarms","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Soap bottles (plastic)","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Soil","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Spectacles","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Spread tubs","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Steel pans","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Steel baking trays","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Stoma bags","bin":"Clinical waste collection","recycle":false,"colour":null,"notes":"arranged"},{"name":"Stones","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"Storage heaters","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Sweet wrappers","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Tablet Packs (Blister Packs)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Takeaway paper coffee cups","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Takeaway tubs","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"},{"name":"Telephone directories","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Television","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Tetra Pak cartons","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Textiles","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Tiles","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits may apply"},{"name":"Timber\/logs","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Tissues","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Toilets (lids, pans and cisterns)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Toner cartridges","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Tools - garden\/carpentry","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Towels","bin":"Textiles collection","recycle":true,"colour":"orange","notes":"in a carrier bag"},{"name":"Toys","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Treated wood","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Trees \/ bushes","bin":"HWRC","recycle":true,"colour":"grey","notes":"Size limits will apply"},{"name":"Tumble dryer","bin":"Bulky waste collection\/ HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Turf","bin":"HWRC","recycle":true,"colour":"grey","notes":"limits on quantity"},{"name":"TVs","bin":"Bulky waste collection\/ HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Twigs (up to three inches in diameter)","bin":"Garden waste collection","recycle":true,"colour":"green","notes":""},{"name":"Tyres (car, bicycle and motorbike)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"USB cables","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Vacuum cleaner","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Vases","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Video cassettes (VHS tapes)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Washing machines","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Washing up bowls","bin":"Black wheelie bin\/blue bag\/HWRC","recycle":true,"colour":"black","notes":""},{"name":"Water filter cartridge","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Water tank","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"White goods","bin":"Bulky waste collection\/HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Windows (panes)","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Wipes","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Wires and cables","bin":"HWRC","recycle":true,"colour":"grey","notes":""},{"name":"Wood","bin":"HWRC","recycle":true,"colour":"grey","notes":"Size limits will apply"},{"name":"Wound dressings","bin":"Clinical waste collection","recycle":false,"colour":null,"notes":"arranged"},{"name":"Wrapping paper (non-metallic)","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Wrapping paper (metallic)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Writing instruments (e.g. pens, felt tips, correction fluid pot)","bin":"Black wheelie bin\/blue bag","recycle":false,"colour":"black","notes":""},{"name":"Yellow Pages","bin":"Recycling box","recycle":true,"colour":"orange","notes":""},{"name":"Yoghurt tubs","bin":"Plastics collection","recycle":true,"colour":"white","notes":"in a white\/transparent plastic bag"}];
 
 const input = document.querySelector('input');
 const suggestions = document.querySelector('.suggestions');
@@ -197,11 +62,12 @@ function formatMaterial( material, searchString ) {
   var materialClass = material.recycle ? 'recyclable' : 'non-recyclable';
   var binString = material.recycle ? material.bin : 'Not recyclable';
   var binColour = binColours[material.colour] ? binColours[material.colour] : 'inherit';
+  var textColour = textColours[material.colour] ? textColours[material.colour] : 'inherit';
   materialString = materialString.replace( new RegExp(`(${searchString})`, 'gi'), '<span class="hl">$1</span>' );    
   return `<li class="${materialClass}">
             <div>
               <span class="name">${materialString}</span>
-              <span class="bin" style="background-color: ${binColour}">${binString}</span>
+              <span class="bin" style="background-color: ${binColour}; color: ${textColour};">${binString}</span>
             </div>
             <div>
               <span class="note">${material.notes}</span>
