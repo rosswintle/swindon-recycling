@@ -20,106 +20,96 @@
   </main>
 <script>
 
-var colours = {
-  orange: 'hsl(30, 100%, 60%)'
+var binColours = {
+  'orange': 'hsl(30, 100%, 60%)',
+  'green': 'hsl(120, 60%, 60%)',
+  'black': 'hsl(0, 0%, 0%)',
+  'white': 'hsl(0, 0%, 100%)'
 }
+
 var materials = [
   {
     name: 'Letters',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Envelopes',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Paper',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Junk Mail',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Leaflets',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Newspapers',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Magazines',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Catalogues',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Wrapping paper (non-metallic)',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: 'No metallic/foil wrapping please!!',
   },
   {
     name: 'Greeting cards',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: 'No metallic/foil cards please',
   },
   {
     name: 'Cardboard',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: 'Only clean/dry cardboard please!',
   },
   {
     name: 'Corrugated cardboard',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Cereal boxes',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
     name: 'Egg boxes',
     recycle: true,
     bin: 'Orange box',
-    binColor: colours.orange,
     notes: '',
   },
   {
@@ -170,6 +160,18 @@ var materials = [
     bin: '',
     notes: '',
   },
+  {
+    name: 'Grass cuttings',
+    recycle: true,
+    bin: 'Green garden waste',
+    notes: 'Requires garden waste subscription',
+  },
+  {
+    name: 'Leaves',
+    recycle: true,
+    bin: 'Green garden waste',
+    notes: 'Requires garden waste subscription',
+  },
 ];
 
 const input = document.querySelector('input');
@@ -194,11 +196,12 @@ function formatMaterial( material, searchString ) {
   var materialString = material.name;
   var materialClass = material.recycle ? 'recyclable' : 'non-recyclable';
   var binString = material.recycle ? material.bin : 'Not recyclable';
+  var binColour = binColours[material.colour] ? binColours[material.colour] : 'inherit';
   materialString = materialString.replace( new RegExp(`(${searchString})`, 'gi'), '<span class="hl">$1</span>' );    
   return `<li class="${materialClass}">
             <div>
               <span class="name">${materialString}</span>
-              <span class="bin" style="background-color: ${material.binColor}">${binString}</span>
+              <span class="bin" style="background-color: ${binColour}">${binString}</span>
             </div>
             <div>
               <span class="note">${material.notes}</span>
