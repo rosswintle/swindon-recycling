@@ -82,4 +82,18 @@ foreach ($binsFound as $bin => $count) {
 
 echo "\n\n" . count($binsFound) . " bins found\n\n";
 
-echo json_encode($materials);
+// JSON 
+//echo json_encode($materials);
+
+// CSV
+$FILE = fopen('materials.csv', 'w');
+foreach ($materials as $material) {
+	$line = [];
+	$line[] = $material->name;
+	$line[] = $material->bin;
+	$line[] = $material->recycle ? 1 : 0;
+	$line[] = $material->colour;
+	$line[] = $material->notes;
+	fputcsv($FILE, $line);
+}
+fclose($FILE);
